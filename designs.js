@@ -10,21 +10,34 @@
 // });
 
 function changeColor() {
-  document.getElementById("testElement").style.color = document.getElementById("colorPicker").value;
+  document.getElementById("testElement").style.backgroundColor = document.getElementById("colorPicker").value;
   console.log("You Changed the Color");
 }
 
 const submitEl = document.querySelector("#submitbutton");
-const heightEl = document.querySelector("#inputHeight");
-const widthEl = document.querySelector("#inputWidth");
+const tableEl = document.querySelector("#pixelCanvas");
+
 let height;
 let width;
 
 submitEl.addEventListener('click', function (event) {
-event.preventDefault();
-console.log("you clicked the Submit button");
-height = heightEl.value;
-width = widthEl.value;
+  tableEl.innerHTML = '';
+  const heightEl = document.querySelector("#inputHeight");
+  const widthEl = document.querySelector("#inputWidth");
+  event.preventDefault();
+  console.log("you clicked the Submit button");
+  height = heightEl.value;
+  width = widthEl.value;
+
+  for (var y = 0; y < height; y++) {
+    const tr = document.createElement('tr');
+    tableEl.appendChild(tr);
+    for (var x = 0; x < width; x++) {
+      console.log(y, x);
+      const td = document.createElement('td');
+      tr.appendChild(td);
+    }
+  }
 });
 // Select size input
 
