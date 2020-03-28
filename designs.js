@@ -9,13 +9,20 @@
 //   color = colorElement.value;
 // });
 
-function changeColor() {
-  document.getElementById("testElement").style.backgroundColor = document.getElementById("colorPicker").value;
-  console.log("You Changed the Color");
-}
+// function changeColor() {
+//   document.getElementById("pixelCanvas").style.backgroundColor = document.getElementById("colorPicker").value;
+//   console.log("You Changed the Color");
+// }
 
 const submitEl = document.querySelector("#submitbutton");
 const tableEl = document.querySelector("#pixelCanvas");
+
+tableEl.addEventListener('click', function (event) {
+console.log("clicked");
+event.target.style.backgroundColor = document.getElementById("colorPicker").value;
+});
+
+
 
 let height;
 let width;
@@ -45,3 +52,16 @@ submitEl.addEventListener('click', function (event) {
 // When size is submitted by the user, call makeGrid()
 
 
+// <!--
+// <table id="demo" onclick="changeColor()>
+// <tr>
+//   <td></td>
+//   <td></td>
+// </tr>
+// <tr>
+//   <td></td>
+// </tr>
+// </table>
+// -->
+
+{/* <h2 id="testElement" onclick="changeColor()">test</h2> */}
